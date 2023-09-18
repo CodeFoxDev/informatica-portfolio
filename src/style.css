@@ -10,9 +10,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--primary);
   color: var(--text);
-  min-height: 500vh;
   font-family: 'Inter';
 }
 
@@ -34,7 +32,6 @@ nav {
   align-items: center;
   padding: 1rem;
   z-index: 100;
-  background: var(--primary);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -71,10 +68,42 @@ nav>.menu>span {
   place-items: center;
 }
 
+div.background {
+  --pos-x: 10px;
+  --pos-y: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  isolation: isolate;
+  pointer-events: none;
+  background: var(--primary);
+}
+
+div.background>.cicle {
+  position: absolute;
+  top: calc(var(--pos-y) - 10rem);
+  left: calc(var(--pos-x) - 10rem);
+  width: 20rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  z-index: -1;
+  opacity: .3;
+}
+
+div.background>.front-plane {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(100px);
+}
+
 main>.front {
   --perspective: 1600px;
   isolation: isolate;
-  height: 100vh;
+  height: 320vh;
 }
 
 main>.front>.title-3d {
@@ -101,8 +130,9 @@ main>.front>.title-3d > .content {
 main>.front>.title-3d>.content>h1 {
   font-family: 'Jetbrains mono';
   font-weight: 800;
-  font-size: 5.8rem;
+  font-size: max(calc(min(5.5rem, 5vw)), 1.3rem);
   --computed: min(calc(var(--position) + var(--offset)), 0px);
-  transform: translate(calc(var(--computed) + 100px));
+  --padding: min(100px, 3vw);
+  transform: translate(calc(var(--computed) + var(--padding)));
   overflow: visible;
 }
