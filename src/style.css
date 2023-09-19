@@ -6,6 +6,8 @@
   --accent: #8C69C6;
 }
 
+/* Global */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -22,6 +24,39 @@ h1, h2, h3, h4, h5, h6, p {
   box-sizing: border-box;
 }
 
+a.button {
+  text-decoration: none;
+  display: block;
+  height: 3rem;
+  min-width: 10rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  border-radius: .6rem;
+  transition: background .3s ease, color .3s ease;
+}
+
+a.button:hover {
+  background: var(--accent);
+  color: var(--text);
+}
+
+h1.section-header {
+  color: var(--accent);
+  font-size: 3rem;
+}
+
+h1.section-header.line {
+  width: 20rem;
+  text-align: center;
+  padding-bottom: .5rem;
+  border-bottom: 4px solid var(--accent);
+  border-radius: 2px;
+}
+
+/* Nav */
+
 nav {
   position: fixed;
   top: 0;
@@ -32,8 +67,9 @@ nav {
   align-items: center;
   padding: 1rem;
   z-index: 100;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(24, 26, 27, 0.8);
+  backdrop-filter: blur(4rem);
+  -webkit-backdrop-filter: blur(4rem);
 }
 
 nav>.logo {
@@ -68,9 +104,12 @@ nav>.menu>span {
   place-items: center;
 }
 
+/* Home page */
+
 main {
   display: flex;
   flex-direction: column;
+  margin-bottom: 4rem;
 }
 
 main>.front {
@@ -98,4 +137,97 @@ main>.front>.content>p.accent-text {
 
 main>.front>.content>p.description {
   width: min(100%, 40rem);
+}
+
+/* Projects page */
+main>.projects {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+/* Projects */
+.project {
+  height: 20rem;
+  width: 60rem;
+  display: grid;
+  grid-template-columns: 28rem 32rem;
+}
+
+.project>.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+  z-index: 2;
+}
+
+.project>.info>h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.project>.info>.featured {
+  font-family: 'Ubuntu mono';
+  color: var(--accent);
+}
+
+.project>.info>.description {
+  direction: ltr;
+  padding: 1rem;
+  border-radius: .6rem;
+  background: #543F77;
+  width: 32rem;
+}
+
+.project>.info>.technologies {
+  font-family: 'Ubuntu mono';
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.project>.info>.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project>.image {
+  text-decoration: none;
+  color: var(--text);
+  width: 100%;
+  border-radius: .6rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.project>.image>img {
+  width: 100%;
+  transition: opacity .3s ease;
+}
+
+.project>.image:hover>img {
+  opacity: .3;
+}
+
+.project>.image>span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.project>.image:hover>span {
+  opacity: 1;
+}
+
+.project.reversed {
+  direction: rtl;
 }
