@@ -3,8 +3,7 @@
   --secondary: #1f2223;
   --complementory: #333637;
   --text: #c7c8c8;
-  --accent-blue: #5D94CB;
-  --accent-green: #9BBF31;
+  --accent: #8C69C6;
 }
 
 html, body {
@@ -12,6 +11,7 @@ html, body {
   padding: 0;
   color: var(--text);
   font-family: 'Inter';
+  background: var(--primary);
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -27,7 +27,7 @@ nav {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 5rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -68,71 +68,34 @@ nav>.menu>span {
   place-items: center;
 }
 
-div.background {
-  --pos-x: 10px;
-  --pos-y: 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  isolation: isolate;
-  pointer-events: none;
-  background: var(--primary);
-}
-
-div.background>.cicle {
-  position: absolute;
-  top: calc(var(--pos-y) - 10rem);
-  left: calc(var(--pos-x) - 10rem);
-  width: 20rem;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: var(--accent-blue);
-  z-index: -1;
-  opacity: .3;
-}
-
-div.background>.front-plane {
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(100px);
+main {
+  display: flex;
+  flex-direction: column;
 }
 
 main>.front {
-  --perspective: 1600px;
-  isolation: isolate;
-  height: 320vh;
+  width: 100%;
+  height: calc(100vh);
+  display: grid;
+  place-items: center;
 }
 
-main>.front>.title-3d {
-  --position: 0;
-  position: fixed;
-  top: 50%;
-  perspective: var(--perspective);
-  transform: translateY(-50%);
-  z-index: -1;
-  width: 110rem;
+main>.front>.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(calc(100vw - 4rem), 80rem);
 }
 
-main>.front>.title-3d > .content {
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  transform-origin: center left;
-  transform: rotate3d(0, 1, 0, 35deg);
-  backface-visibility: hidden;
+main>.front>.content>h1.title {
+  font-size: 4rem;
 }
 
-main>.front>.title-3d>.content>h1 {
-  font-family: 'Jetbrains mono';
-  font-weight: 800;
-  font-size: max(calc(min(5.5rem, 5vw)), 1.3rem);
-  --computed: min(calc(var(--position) + var(--offset)), 0px);
-  --padding: min(100px, 3vw);
-  transform: translate(calc(var(--computed) + var(--padding)));
-  overflow: visible;
+main>.front>.content>p.accent-text {
+  font-family: 'Ubuntu mono';
+  color: var(--accent);
+}
+
+main>.front>.content>p.description {
+  width: min(100%, 40rem);
 }
