@@ -11,6 +11,16 @@ export default {
       featured: true,
     },
     {
+      title: "Ceramic app",
+      id: "ceramic-app",
+      description: "Ceramic is a tool that helps to build (mobile) applications with vite and jsx. It requires no (except for vite) external dependencies and is incredibly fast. <br><br> I am still working on it and am concurrently testing it through building a custom android app",
+      technologies: [ "Javascript", "JSX", "Vite", "ESbuild", "NPM", "Framework" ],
+      image: "/src/projects/shot-ceramic-app.png",
+      package: "https://www.npmjs.com/package/ceramic-app",
+      code: "https://github.com/codefoxdev/ceramic-app",
+      featured: true
+    },
+    {
       title: "Cym.center",
       id: "cym-center",
       description: "A website I build for Cym Crea Computer, where the members can show off some projects they've created. It was build last year and unfortunatly hasn't been updated in a while.",
@@ -20,14 +30,13 @@ export default {
       code: "https://github.com/codefoxdev/cym-center"
     },
     {
-      title: "Ceramic app",
-      id: "ceramic-app",
-      description: "Ceramic is a tool that helps to build (mobile) applications with vite and jsx. It requires no (except for vite) external dependencies and is incredibly fast. <br><br> I am still working on it and am concurrently testing it through building a custom android app",
-      technologies: [ "Javascript", "JSX", "Vite", "ESbuild", "NPM", "Framework" ],
-      image: "/src/projects/shot-ceramic-app.png",
-      package: "https://www.npmjs.com/package/ceramic-app",
-      code: "https://github.com/codefoxdev/ceramic-app",
-      featured: true
+      title: "Technasium portfolio",
+      id: "technasium-portfolio",
+      description: "A portfolio for keeping track of the projects and workshops made in the past four yours at Technasium.",
+      technologies: [ "HTML", "CSS", "Javascript" ],
+      image: "/src/projects/shot-technasium-portfolio.png",
+      live: "https://technasium-portfolio.codefoxdev.com",
+      code: "https://github.com/codefoxdev/technasium-portfolio"
     },
   ]
 }
