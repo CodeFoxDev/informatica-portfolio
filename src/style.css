@@ -112,6 +112,22 @@ nav > .menu > span {
   place-items: center;
 }
 
+/* General */
+main > .section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+main > .section > h2 {
+  color: var(--accent);
+  font-size: 3rem;
+}
+
 /* Home page */
 
 main {
@@ -243,4 +259,35 @@ main > .projects {
 
 .project.reversed {
   direction: rtl;
+}
+
+/* Skills */
+main > .skills {
+}
+
+main > .skills > .skills-container {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+}
+
+div.skill-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+div.skill-icon:hover {
+  transform: translateY(-0.5rem);
+}
+
+div.skill-icon > img {
+  width: 6rem;
+  aspect-ratio: 1/1;
 }
