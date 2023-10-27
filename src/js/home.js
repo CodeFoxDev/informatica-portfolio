@@ -1,21 +1,14 @@
-const contents = [
-  "student",
-  "full stack web developer",
-  "android developer",
-  "UI/UX designer",
-  "open source enthousiast",
-  "linux user"
-];
+import config from "../site.config.js";
 
-(function() {
+(function () {
   const title = document.querySelector("#title-changing");
 
   let index = 0;
 
   setInterval(() => {
-    if (index < contents.length - 1) index++;
+    if (index < config.home.titles.length - 1) index++;
     else index = 0;
-    const content = contents[index];
+    const content = config.home.titles[index];
 
     typeContent(title, content, 20);
   }, 5000);

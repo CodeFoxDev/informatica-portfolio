@@ -1,9 +1,9 @@
 import config from "../site.config.js";
 
-const projectsDiv = document.querySelector(".projects");
-
 function fillProjects() {
-  const isFeatured = projectsDiv.getAttribute("featured") == "";
+  const projectsDiv = document.querySelector(".projects");
+  if (!projectsDiv) return;
+  const isFeatured = projectsDiv.getAttribute("data-featured") == "";
   let index = 0;
   config.projects.forEach((project, i, arr) => {
     if (!project.featured && isFeatured) return;
@@ -59,6 +59,6 @@ function getImageIcon(project) {
   return "";
 }
 
-if (projectsDiv) fillProjects();
+fillProjects();
 
 export default config.projects;

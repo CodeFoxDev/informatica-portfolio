@@ -1,23 +1,26 @@
 # Informatica portfolio
 
 ## Pages
-- Home page                             X
+
+- Home page
   - Short about section
-  - Featured projects                   X
+  - Featured projects
 - About page
   - Info about me
   - Hobby's
-- Projects page                         X
+- Projects page
   - Sub page's for each project?
 - Sitemap
 
 ## Required elements
-- Table                                   (top reposisitories/packages?)
+
+- Table (top reposisitories/packages?)
 - Video
-- Images                                x (also as link)
+- Images
 - List (ul or ol)
 
 ## TODO
+
 - SPA?
 - Add lower res image for project previews
 - Wireframing
