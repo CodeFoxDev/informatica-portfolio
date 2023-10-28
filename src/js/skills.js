@@ -1,7 +1,8 @@
 import config from "../site.config.js";
 
 function fillSkills() {
-  const skills = document.querySelector(".skills-container");
+  const skills = document.querySelector("[data-skills-fill]");
+  if (!skills) return;
 
   config.skills.forEach((e, i) => {
     const div = document.createElement("div");

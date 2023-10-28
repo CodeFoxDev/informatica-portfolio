@@ -60,6 +60,16 @@ h1.section-header.line {
   padding-bottom: 0.5rem;
   border-bottom: 4px solid var(--accent);
   border-radius: 2px;
+  margin-inline: 1rem;
+}
+
+.flex-next {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.flex-next > * {
+  max-width: 600px;
 }
 
 /* Nav */
@@ -262,10 +272,8 @@ main > .projects {
 }
 
 /* Skills */
-main > .skills {
-}
 
-main > .skills > .skills-container {
+main > .about > .skills-container {
   display: grid;
   place-items: center;
   grid-template-columns: repeat(6, 1fr);
