@@ -1,46 +1,48 @@
 import config from "../site.config.js";
 
 function fillProjects() {
-  const projectsDiv = document.querySelector(".projects");
+  const projectsDiv = document.querySelector("[data-projects-fill]");
   if (!projectsDiv) return;
-  const isFeatured = projectsDiv.getAttribute("data-featured") == "";
-  let index = 0;
-  config.projects.forEach((project, i, arr) => {
-    if (!project.featured && isFeatured) return;
-    const div = document.createElement("div");
-    div.classList.add("project");
-    if (index % 2 == 1) div.classList.add("reversed");
-    div.setAttribute("data-id", project.id);
-
-    div.innerHTML = /*html*/`
-      <div class="info">
-        ${isFeatured ? /*html*/`<p class="featured">Featured project</p>` : ""}
-        <h1>${project.title}</h1>
-        <div class="description">${project.description}</div>
-        <div class="technologies">${getProjectTechnologies(project)}</div>
-        <div class="buttons">${getProjectButtons(project)}</div>
+  const isSmall = projectsDiv.getAttribute("data-projects-small") != null ? true : false;
+  let largest = 0;
+  let done = false;
+  config.projects.forEach((e, i) => {
+    if (done) return;
+    const a = document.createElement("a");
+    a.className = "project-small flex-list";
+    a.href = `/projects?id=${e.id}`;
+    a.innerHTML = /*html*/`
+      <div class="image">
+        <img src="${e.image}" alt="" />
+        <div class="overlay absolute top left"></div>
       </div>
-      <a href="${project.live ?? project.package ?? project.code ?? ""}" class="image" target="_blank">
-        <img src="${project.image}" alt="Codefoxdev.com" draggable="false">
-        ${getImageIcon(project)}
-      </a>
+      <div class="info flex-list">
+        <div class="description flex-list">
+          <h1>${e.title}</h1>
+          <p>${e.description}</p>
+        </div>
+        <div class="inline flex-row">
+          <div class="technologies flex-row">
+            ${getProjectTechnologies(e)}
+          </div>
+          <div class="button">
+            <span class="material-symbols-rounded no-select">
+              chevron_right
+            </span>
+          </div>
+        </div>
+      </div>
     `;
-    projectsDiv.append(div);
-    index++;
+    projectsDiv.appendChild(a);
+    const d = a.getBoundingClientRect().height;
+    if (d > largest) largest = d;
+    if (i == (projectsDiv.getAttribute("data-projects-limit") ?? config.projects.length) - 1) done = true;
   });
-
-  if (isFeatured) {
-    const button = document.createElement("a");
-    button.className = "button";
-    button.href = "/projects";
-    button.innerHTML = "View more";
-    projectsDiv.append(button);
-  }
 }
 
 function getProjectTechnologies(project) {
   let res = "";
-  project.technologies.forEach(e => res += /*html*/`<span>${e}</span>`);
+  project.technologies.forEach(e => res += /*html*/`<code>${e}</code>`);
   return res;
 }
 

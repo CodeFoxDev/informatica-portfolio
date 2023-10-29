@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@100;200;300;400;500;600;800&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -20,11 +20,13 @@
     <nav
       class="nav flex-next"
       data-scroll-class="sticky"
-      data-scroll-threshold="30vh">
+      data-scroll-threshold="26vh">
       <div class="flex-row">
-        <img src="/src/assets//logo.svg" alt="" class="logo" />
+        <a href="/">
+          <img src="/src/assets/logo.svg" alt="" class="logo" />
+        </a>
         <p
-          class="archivo title"
+          class="archivo-black title"
           data-scroll-threshold="96vh"
           data-scroll-class="shown">
           CODEFOXDEV
@@ -72,9 +74,37 @@
           <div class="left"></div>
           <div class="right flex-column">
             <div class="title flex-column">
-              <h1 class="archivo">I'm a</h1>
-              <h1 class="archivo" id="title-type">student</h1>
+              <h1 class="archivo-black">I'm a</h1>
+              <h1 class="archivo-black" id="title-type">student</h1>
             </div>
+            <a href="/about" class="button-inline border">
+              About me
+              <span class="line"></span>
+              <span class="line bottom"></span>
+            </a>
+            <a href="/contact" class="button-inline border">
+              Contact me
+              <span class="line"></span>
+              <span class="line bottom"></span>
+            </a>
+            <span class="spacer"></span>
+          </div>
+        </div>
+        <h1 class="title archivo-black absolute flex-row">CODEFOXDEV</h1>
+      </div>
+      <div class="section flex-next about-home" id="about">
+        <div class="left"></div>
+        <div class="right flex-column">
+          <p class="archivo">
+            I’m a 15 year old student at Minkema college, the Netherlands. I am
+            a full stack android and web developer and a UI/UX designer aiming
+            to build accessible, user-friendly and extremely fast applications.
+            <span class="divider inline"></span>
+            I have been coding since 2020, I started with scratch, and switched
+            to Javascript in 2021, wich I'm still using to this day. Along the
+            way I've tried other languages, like Python, C++, C#, Kotlin & Dart.
+          </p>
+          <div class="buttons flex-row">
             <a href="/about" class="button-inline border">
               About me
               <span class="line"></span>
@@ -85,25 +115,16 @@
               <span class="line"></span>
               <span class="line bottom"></span>
             </a>
-            <span class="spacer"></span>
           </div>
         </div>
-        <h1 class="title archivo absolute flex-row">CODEFOXDEV</h1>
       </div>
-      <div class="section flex-next about-home" id="about">
-        <div class="left"></div>
-        <div class="right">
-          <div class="content flex-column">
-            <h1 class="accent">About</h1>
-            I’m a 15 year old student at Minkema college, the Netherlands. I am
-            a full stack android and web developer and a UI/UX designer aiming
-            to build accessible, user-friendly and extremely fast applications.
-            <span class="divider"></span>
-            I have been coding since 2020, I started with scratch, and switched
-            to Javascript in 2021, wich I'm still using to this day. Along the
-            way I've tried other languages, like Python, C++, C#, Dart
-          </div>
-        </div>
+      <div class="section projects-home flex-list" id="projects">
+        <h1 class="title">Projects</h1>
+        <div
+          class="items"
+          data-projects-fill
+          data-projects-small
+          data-projects-limit="4"></div>
       </div>
     </main>
     <div class="background absolute top left flex-next">

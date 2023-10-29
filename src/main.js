@@ -6,11 +6,13 @@ scrollShow?.forEach((e, i) => {
   const attr = e.getAttribute("data-scroll-threshold");
   const threshold = parseCssVal(attr);
   if (typeof threshold != "number" || !attr) return;
-  addEventListener("scroll", () => {
+  const fn = () => {
     const className = e.getAttribute("data-scroll-class");
     if (window.scrollY < threshold) return e.classList.remove(className);
     e.classList.add(className);
-  });
+  }
+  addEventListener("scroll", fn);
+  fn();
 });
 
 function parseCssVal(inp, toPX) {

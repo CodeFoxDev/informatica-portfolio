@@ -15,7 +15,7 @@ import config from "../site.config.js";
     animationInProgress = true;
     await typeContent(title, content, 20);
     animationInProgress = false;
-  }, 5000);
+  }, 6000);
 })();
 
 function typeContent(element, content, speed) {
