@@ -16,6 +16,7 @@
   </head>
 
   <body>
+    <input type="checkbox" name="nav-toggle" id="nav-toggle" hidden />
     <nav
       class="nav flex-next"
       data-scroll-class="sticky"
@@ -36,8 +37,33 @@
           <a href="/contact" class="link line">Contact</a>
         </div>
         <div class="menu flex-row">
-          <span class="material-symbols-rounded pointer">menu</span>
+          <label for="nav-toggle">
+            <span class="material-symbols-rounded pointer">menu</span>
+          </label>
         </div>
+      </div>
+      <div class="nav-menu flex-list">
+        <a href="/about" class="link line fw">
+          <span>About</span>
+        </a>
+        <a href="/projects" class="link line fw">
+          <span>Projects</span>
+        </a>
+        <a href="/contact" class="link line fw">
+          <span>Contact</span>
+        </a>
+        <a
+          href="https://github.com/codefoxdev"
+          target="_blank"
+          class="link line fw external">
+          <span>Github</span>
+        </a>
+        <a
+          href="https://npmjs.com/~codefoxdev"
+          target="_blank"
+          class="link line fw external">
+          <span>npm</span>
+        </a>
       </div>
     </nav>
     <main>
@@ -49,11 +75,20 @@
               <h1 class="archivo">I'm a</h1>
               <h1 class="archivo" id="title-type">student</h1>
             </div>
-            <a href="/about" class="button-inline">About me</a>
-            <a href="/projects" class="button-inline">Projects</a>
+            <a href="/about" class="button-inline border">
+              About me
+              <span class="line"></span>
+              <span class="line bottom"></span>
+            </a>
+            <a href="/projects" class="button-inline border">
+              Projects
+              <span class="line"></span>
+              <span class="line bottom"></span>
+            </a>
+            <span class="spacer"></span>
           </div>
         </div>
-        <h1 class="title archivo absolute">CODEFOXDEV</h1>
+        <h1 class="title archivo absolute flex-row">CODEFOXDEV</h1>
       </div>
       <div class="section flex-next about-home" id="about">
         <div class="left"></div>
@@ -74,6 +109,14 @@
     <div class="background absolute top left flex-next">
       <div class="noise"></div>
       <div class="solid"></div>
+    </div>
+    <div class="background-darken"></div>
+    <div class="lines absolute top left">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
     <script src="/src/main.js" type="module"></script>
     <script src="/src/js/home.js" type="module"></script>

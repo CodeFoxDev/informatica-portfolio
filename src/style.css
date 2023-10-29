@@ -3,6 +3,9 @@
   --secondary: #181a1b;
   --text: #fff;
   --accent: #8c69c6;
+  --line-color: rgba(255, 255, 255, 0.15);
+  --line-width: 1px;
+  --line-margin-inline: 2rem;
 }
 
 /* Global */
@@ -15,6 +18,12 @@ body {
   font-family: "Inter", sans-serif;
   background: var(--primary);
   isolation: isolate;
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  position: relative;
 }
 
 h1,
@@ -59,7 +68,7 @@ p.archivo {
   justify-content: space-between;
 
   height: 3rem;
-  width: 50%;
+  width: calc(50% - 1rem);
 
   border-left: 2px solid var(--accent);
   padding-inline: 1rem;
@@ -75,7 +84,32 @@ p.archivo {
 
 .button-inline:hover::after {
   color: var(--accent);
-  transform: translate(0.75rem);
+  transform: translate(0.35rem);
+}
+
+.button-inline.border {
+  position: relative;
+}
+
+.button-inline.border > .line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  background: var(--line-color);
+  height: var(--line-width);
+  transition: width 0.3s ease;
+}
+
+.button-inline.border > .line.bottom {
+  top: unset;
+  bottom: 0;
+  left: unset;
+  right: 0;
+}
+
+.button-inline.border:hover > .line {
+  width: 100%;
 }
 
 /* Flex rules */
@@ -91,6 +125,12 @@ p.archivo {
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+}
+
+.flex-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .flex-column {
@@ -129,14 +169,13 @@ nav {
   left: 0;
   width: 100vw;
   height: 6rem;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  z-index: 100;
+  padding: 1rem calc(1rem + var(--line-margin-inline));
+  z-index: 99;
   transition: all 0.3s ease;
 
   backdrop-filter: unset;
   -webkit-backdrop-filter: unset;
+  border-bottom: var(--line-width) solid var(--line-color);
 }
 
 nav.sticky {
@@ -171,7 +210,18 @@ nav .link {
   position: relative;
 }
 
-nav .link.line::after {
+nav .link.fw {
+  height: calc(1.375rem + 1.5rem);
+  width: 100%;
+}
+
+nav .link.fw > span {
+  position: relative;
+  padding: 0;
+}
+
+nav .link.line:not(.fw)::before,
+nav .link.line.fw > span::before {
   content: "";
   position: absolute;
   bottom: 0.35rem;
@@ -185,29 +235,77 @@ nav .link.line::after {
   transition: transform 0.3s ease;
 }
 
-nav .link.line:hover::after {
+nav .link.line.fw > span::before {
+  bottom: -0.35rem;
+  left: 0;
+  width: 100%;
+}
+
+nav .link.line:not(.fw):hover::before,
+nav .link.line.fw:hover > span::before {
   transform-origin: left;
   transform: scaleX(1);
+}
+
+nav .link.line.external::after {
+  content: "\f8ce";
+  font-family: "Material Symbols Rounded";
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--text);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+nav .link.line.external:hover::after {
+  opacity: 1;
 }
 
 nav .menu {
   flex-direction: row-reverse;
 }
 
-nav .menu > span {
+nav .menu span {
   font-size: 2rem;
   padding: 1rem;
 }
 
+nav > .nav-menu {
+  position: absolute;
+  top: 7rem;
+  right: calc(var(--line-margin-inline) + 1rem);
+  border-radius: 0.6rem;
+  background: var(--secondary);
+  width: 0;
+  height: 0;
+  transition: width 0.3s ease, height 0.3s ease 0.3s, padding 0.3s ease;
+  overflow: hidden;
+  z-index: 102;
+}
+
+#nav-toggle:checked ~ nav > .nav-menu {
+  width: min(calc(100vw - calc(var(--line-margin-inline) * 2 + 2rem)), 20rem);
+  height: 16rem;
+  padding: 1rem;
+}
+
+#nav-toggle:checked ~ .background-darken {
+  opacity: 0.8;
+  pointer-events: all;
+}
+
 main {
-  margin-top: 6rem;
+  padding-top: 6rem;
   width: 100%;
 }
 
 .background {
   z-index: -1;
   width: 100vw;
-  min-height: 200vh;
+  height: 100%;
 }
 
 .background > .noise {
@@ -220,15 +318,47 @@ main {
   background: var(--primary);
 }
 
+.background-darken {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+  z-index: 90;
+  background: #000;
+  transition: opacity 0.3s ease;
+}
+
+.lines {
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-inline: var(--line-margin-inline);
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.lines > .line {
+  height: 100%;
+  width: var(--line-width);
+  background: var(--line-color);
+}
+
 main > .front {
   width: 100%;
   height: calc(100vh - 6rem);
+  border-bottom: var(--line-width) solid var(--line-color);
 }
 
 main > .front > .title {
-  left: 2rem;
+  left: 0;
   bottom: 0;
-  font-size: 12vw;
+  width: 100vw;
+  font-size: calc(12.5vw - 0.3rem);
+  justify-content: center;
 }
 
 main > .front > .content {
@@ -237,9 +367,19 @@ main > .front > .content {
 
 main > .front > .content .title {
   margin-left: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   gap: 0;
   font-size: 1.5rem;
+}
+
+main > .front > .content .spacer {
+  pointer-events: none;
+  display: block;
+  height: 3rem;
+}
+
+#title-type {
+  height: 4rem;
 }
 
 .about-home {

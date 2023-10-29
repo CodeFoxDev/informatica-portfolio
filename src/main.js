@@ -27,3 +27,7 @@ function parseCssVal(inp, toPX) {
   }
   return val;
 }
+
+document.querySelector(".background-darken").addEventListener("click", () => {
+  document.querySelector("#nav-toggle").checked = false;
+})
