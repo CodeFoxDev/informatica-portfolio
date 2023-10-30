@@ -86,11 +86,19 @@ export default {
       title: "@Honeyjs/vite-loader",
       id: "honeyjs-vite-loader",
       description: "A vite plugin to load various files, like png, svg, etc. As native html elements, or h functions",
-      technologies: ["@Honeyjs", "Vite", "ES6", "Framework"],
+      technologies: ["@Honeyjs", "Vite", "ES6", "Assets"],
       image: "/src/projects/shot-honeyjs-vite-loader.png",
       package: "https://www.npmjs.com/package/@honeyjs/vite-loader",
       code: "https://github.com/codefoxdev/honeyjs-vite-loader",
       featured: true
+    },
+    {
+      title: "@Honeyjs/router",
+      id: "honeyjs-router",
+      description: "The official work in progress router for @honeyjs/core, also with mobile (touch) controls, and navigator presets",
+      technologies: ["@Honeyjs", "ES6", "Framework", "Mobile"],
+      image: "/src/projects/shot-honeyjs-router.png",
+      code: "https://github.com/codefoxdev/honeyjs-router",
     },
     {
       title: "Homecontrols",

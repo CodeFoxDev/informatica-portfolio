@@ -10,11 +10,13 @@ function fillProjects() {
     if (done) return;
     const a = document.createElement("a");
     a.className = "project-small flex-list";
-    a.href = `/projects?id=${e.id}`;
+    a.href = getHref(e);
+    if (a.href.startsWith("https://")) a.target = "_blank";
     a.innerHTML = /*html*/`
       <div class="image">
         <img src="${e.image}" alt="" />
         <div class="overlay absolute top left"></div>
+        ${getImageIcon(e)}
       </div>
       <div class="info flex-list">
         <div class="description flex-list">
@@ -46,12 +48,11 @@ function getProjectTechnologies(project) {
   return res;
 }
 
-function getProjectButtons(project) {
-  let res = "";
-  if (project.live) res += /*html*/`<a href="${project.live}" class="button" target="_blank">View live</a>`;
-  if (project.code) res += /*html*/`<a href="${project.code}" class="button" target="_blank">View code</a>`;
-  if (project.package) res += /*html*/`<a href="${project.package}" class="button" target="_blank">View package</a>`;
-  return res;
+function getHref(project) {
+  if (project.live) return project.live;
+  if (project.package) return project.package;
+  if (project.code) return project.code;
+  return "/projects/#";
 }
 
 function getImageIcon(project) {
