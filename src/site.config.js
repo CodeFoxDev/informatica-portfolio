@@ -96,7 +96,7 @@ export default {
       title: "@Honeyjs/router",
       id: "honeyjs-router",
       description: "The official work in progress router for @honeyjs/core, also with mobile (touch) controls, and navigator presets",
-      technologies: ["@Honeyjs", "ES6", "Framework", "Mobile"],
+      technologies: ["@Honeyjs", "Framework", "Mobile"],
       image: "/src/projects/shot-honeyjs-router.png",
       code: "https://github.com/codefoxdev/honeyjs-router",
     },

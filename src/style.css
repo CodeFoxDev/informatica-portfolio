@@ -252,8 +252,6 @@ nav > div {
 }
 
 nav > div > a {
-  display: grid;
-  place-items: center;
   height: 4rem;
 }
 
@@ -373,6 +371,7 @@ nav > .nav-menu {
 main {
   padding-top: 6rem;
   width: 100%;
+  min-height: 100vh;
 }
 
 .background {
@@ -734,4 +733,37 @@ main > .front > .content .spacer {
   height: fit-content;
   margin: 2rem 3rem;
   gap: 2rem;
+}
+
+.front.contact {
+  height: fit-content;
+  padding: 2rem 4rem;
+  border-bottom: var(--line-width) solid var(--line-color);
+}
+
+.second.contact {
+  padding: 2rem 4rem;
+  height: 100%;
+}
+
+.front.contact .title h1 {
+  font-size: 6.25rem;
+}
+
+.second.contact .form .left h1.archivo-black {
+  font-size: 2.5rem;
+}
+
+.second.contact .left > p {
+  max-width: 600px;
+}
+
+.contact-item {
+  padding-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.contact-item img {
+  width: 2rem;
+  height: 2rem;
 }
