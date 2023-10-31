@@ -19,7 +19,7 @@ function parseCssVal(inp, toPX) {
   const ex = /([0-9\.]*)([a-z]*)/gi.exec(inp);
   const val = parseFloat(ex[1]);
   const unit = ex[2];
-  if (!unit) return [ex[1], ex[2]];
+  if (!unit || toPX == true) return [ex[1], ex[2]];
   if (unit == "vh") {
     return (val / 100) * window.innerHeight;
   } else if (unit == "vw") {

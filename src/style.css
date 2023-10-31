@@ -758,6 +758,11 @@ main > .front > .content .spacer {
   max-width: 600px;
 }
 
+main.grid-full {
+  display: grid;
+  grid-auto-rows: auto 1fr;
+}
+
 .contact-item {
   padding-left: 1rem;
   font-size: 1.5rem;
