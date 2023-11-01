@@ -258,7 +258,7 @@ nav > div > a {
 nav p.title {
   overflow: hidden;
   width: 0;
-  transition: width 0.3s ease;
+  transition: width 0.6s ease;
 }
 
 nav p.title.shown {
@@ -359,7 +359,7 @@ nav > .nav-menu {
 
 #nav-toggle:checked ~ nav > .nav-menu {
   width: min(calc(100vw - calc(var(--line-margin-inline) * 2 + 2rem)), 20rem);
-  height: 16rem;
+  height: 24rem;
   padding: 1rem;
 }
 

@@ -17,10 +17,7 @@
 
   <body>
     <input type="checkbox" name="nav-toggle" id="nav-toggle" hidden />
-    <nav
-      class="nav flex-next"
-      data-scroll-class="sticky"
-      data-scroll-threshold="26vh">
+    <nav class="nav flex-next sticky">
       <div class="flex-row">
         <a href="/">
           <img src="/src/assets/logo.svg" alt="" class="logo" />
@@ -45,11 +42,17 @@
         </div>
       </div>
       <div class="nav-menu flex-list">
+        <a href="/" class="link line fw">
+          <span>Home</span>
+        </a>
         <a href="/about" class="link line fw">
           <span>About</span>
         </a>
         <a href="/projects" class="link line fw">
           <span>Projects</span>
+        </a>
+        <a href="/workflow" class="link line fw">
+          <span>Workflow</span>
         </a>
         <a href="/contact" class="link line fw">
           <span>Contact</span>
