@@ -359,7 +359,7 @@ nav > .nav-menu {
 
 #nav-toggle:checked ~ nav > .nav-menu {
   width: min(calc(100vw - calc(var(--line-margin-inline) * 2 + 2rem)), 20rem);
-  height: 24rem;
+  height: 25rem;
   padding: 1rem;
 }
 
@@ -771,4 +771,34 @@ main.grid-full {
 .contact-item img {
   width: 2rem;
   height: 2rem;
+}
+
+/* Design page */
+
+.front.design {
+  padding: 4rem;
+  height: fit-content;
+}
+
+.front.design > p {
+  max-width: 800px;
+}
+
+.front.design .flex-next img {
+  width: 100%;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 1000px) {
+  .front.design .flex-next {
+    grid-template-columns: 1fr;
+  }
+
+  .small-reverse > div:nth-child(1) {
+    order: -1;
+  }
+
+  .small-reverse > div:nth-child(1) {
+    order: 1;
+  }
 }
