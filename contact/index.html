@@ -16,6 +16,7 @@
   </head>
 
   <body>
+    <!-- Checkbox for nav menu -->
     <input type="checkbox" name="nav-toggle" id="nav-toggle" hidden />
     <nav class="nav flex-next sticky">
       <div class="flex-row">
@@ -93,20 +94,33 @@
             Fill out the contact form to the right, or message me via any of the
             following methods.
           </p>
-          <a
-            href="mailto:hello@codefoxdev.com"
-            target="_blank"
-            class="contact-item flex-row archivo">
-            <img src="/src/icons/mail.svg" alt="" />
-            <span class="accent">hello@codefoxdev.com</span>
-          </a>
-          <a
-            href="https://github.com/codefoxdev"
-            target="_blank"
-            class="contact-item flex-row archivo">
-            <img src="/src/icons/github.svg" alt="" />
-            <span class="accent">@codefoxdev</span>
-          </a>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    href="mailto:hello@codefoxdev.com"
+                    target="_blank"
+                    class="contact-item flex-row archivo"
+                    style="margin-bottom: 0.3rem">
+                    <img src="/src/icons/mail.svg" alt="" />
+                    <span class="accent">hello@codefoxdev.com</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://github.com/codefoxdev"
+                    target="_blank"
+                    class="contact-item flex-row archivo">
+                    <img src="/src/icons/github.svg" alt="" />
+                    <span class="accent">@codefoxdev</span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="right"></div>
       </div>

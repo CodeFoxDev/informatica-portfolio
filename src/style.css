@@ -1,3 +1,4 @@
+/* Colors as css vars */
 :root {
   --primary: #000;
   --secondary: #181a1b;
@@ -52,6 +53,8 @@ a {
   color: var(--primary);
 }
 
+/* Custom classes for layout, fonts, colors, etc. */
+
 .archivo {
   font-family: "Archivo", sans-serif;
 }
@@ -61,8 +64,14 @@ a {
 }
 
 p.archivo,
-p.archivo-black {
+p.archivo-black,
+ul.archivo,
+li.archivo {
   font-size: 1.5rem;
+}
+
+ul {
+  margin: 0.5rem 1.5rem;
 }
 
 p.fw {
@@ -143,7 +152,7 @@ h1.title {
   -moz-user-select: none;
 }
 
-/* Flex rules */
+/* Layout rules; flex, grid, etc. */
 
 .flex-next,
 .flex-sts {
@@ -228,7 +237,7 @@ h1.title {
   color: var(--accent);
 }
 
-/* Nav */
+/* Navbar */
 
 nav {
   position: fixed;
@@ -272,6 +281,8 @@ nav p.title.shown {
 nav .links {
   padding-inline: 1.5rem;
 }
+
+/* Links */
 
 .link {
   text-decoration: none;
@@ -361,6 +372,8 @@ nav > .nav-menu {
   z-index: 102;
 }
 
+/* Show/hide navmenu when checkbox is toggled */
+
 #nav-toggle:checked ~ nav > .nav-menu {
   width: min(calc(100vw - calc(var(--line-margin-inline) * 2 + 2rem)), 20rem);
   height: 25rem;
@@ -377,6 +390,8 @@ main {
   width: 100%;
   min-height: 100vh;
 }
+
+/* Background; noise, lines, etc. */
 
 .background {
   z-index: -1;
@@ -429,6 +444,8 @@ main {
   background: var(--line-color);
 }
 
+/* Purple dot on about and design pages */
+
 .circle {
   width: 500px;
   height: 500px;
@@ -437,6 +454,8 @@ main {
   opacity: 0.8;
   filter: blur(5rem);
 }
+
+/* Home page */
 
 main > .front {
   width: 100%;
@@ -685,6 +704,8 @@ main > .front > .content .spacer {
   }
 }
 
+/* About page */
+
 .front.about {
   height: fit-content;
 }
@@ -709,6 +730,7 @@ main > .front > .content .spacer {
   margin-inline: 2rem;
 }
 
+/* Rules that apply when screen less than 1000px wide */
 @media screen and (max-width: 1000px) {
   .front.about {
     grid-template-columns: 1fr;
@@ -758,6 +780,13 @@ main > .front > .content .spacer {
   top: 70vh;
   left: 1100px;
 }
+
+.circle-design {
+  left: 1100px;
+  bottom: 10vh;
+}
+
+/* Projects page */
 
 .front.projects {
   height: fit-content;
