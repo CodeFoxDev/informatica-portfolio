@@ -1,6 +1,6 @@
 import config from "../site.config.js";
 
-function fillProjects() {
+export function fillProjects() {
   const projectsDiv = document.querySelector("[data-projects-fill]");
   if (!projectsDiv) return;
   const isSmall = projectsDiv.getAttribute("data-projects-small") != null ? true : false;

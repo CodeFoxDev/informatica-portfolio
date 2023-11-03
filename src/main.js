@@ -1,5 +1,5 @@
 import "./js/projects.js";
-import "./js/skills.js";
+import "./js/spa.js";
 
 const scrollShow = Array.from(document.querySelectorAll("[data-scroll-class]"));
 scrollShow?.forEach((e, i) => {
@@ -32,4 +32,4 @@ function parseCssVal(inp, toPX) {
 
 document.querySelector(".background-darken").addEventListener("click", () => {
   document.querySelector("#nav-toggle").checked = false;
-})
+});
