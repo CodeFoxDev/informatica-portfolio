@@ -1,19 +1,25 @@
 import "./js/projects.js";
-import "./js/spa.js";
+import { on } from "./js/spa.js"; "./js/spa.js";
 
-const scrollShow = Array.from(document.querySelectorAll("[data-scroll-class]"));
-scrollShow?.forEach((e, i) => {
-  const attr = e.getAttribute("data-scroll-threshold");
-  const threshold = parseCssVal(attr);
-  if (typeof threshold != "number" || !attr) return;
-  const fn = () => {
-    const className = e.getAttribute("data-scroll-class");
-    if (window.scrollY < threshold) return e.classList.remove(className);
-    e.classList.add(className);
-  }
-  addEventListener("scroll", fn);
-  fn();
-});
+function initListeners() {
+  const scrollShow = Array.from(document.querySelectorAll("[data-scroll-class]"));
+  scrollShow?.forEach((e, i) => {
+    const attr = e.getAttribute("data-scroll-threshold");
+    const threshold = parseCssVal(attr);
+    if (typeof threshold != "number" || !attr) return;
+    const fn = () => {
+      const className = e.getAttribute("data-scroll-class");
+      if (window.scrollY < threshold) return e.classList.remove(className);
+      e.classList.add(className);
+    }
+    addEventListener("scroll", fn);
+    fn();
+  });
+
+  document.querySelector(".background-darken").addEventListener("click", () => {
+    document.querySelector("#nav-toggle").checked = false;
+  });
+}
 
 function parseCssVal(inp, toPX) {
   const ex = /([0-9\.]*)([a-z]*)/gi.exec(inp);
@@ -30,6 +36,5 @@ function parseCssVal(inp, toPX) {
   return val;
 }
 
-document.querySelector(".background-darken").addEventListener("click", () => {
-  document.querySelector("#nav-toggle").checked = false;
-});
+initListeners();
+on("load", e => initListeners());

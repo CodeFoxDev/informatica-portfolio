@@ -1,4 +1,5 @@
 import config from "../site.config.js";
+import { on } from "./spa.js";
 
 export function fillProjects() {
   const projectsDiv = document.querySelector("[data-projects-fill]");
@@ -63,5 +64,6 @@ function getImageIcon(project) {
 }
 
 fillProjects();
+on("load", e => fillProjects());
 
 export default config.projects;

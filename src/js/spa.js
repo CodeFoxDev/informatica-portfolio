@@ -1,5 +1,3 @@
-import { fillProjects } from "./projects.js"; "./projects"
-
 let pages = [];
 let host = window.location.origin;
 let cbs = [];
@@ -60,8 +58,8 @@ function render(url) {
     await transition(body);
     history.pushState({}, "", url);
     document.title = formatTitle(url);
+    emit("load", { url });
     initListeners();
-    fillProjects();
   });
 }
 
@@ -117,3 +115,16 @@ function formatTitle(url) {
 }
 
 initListeners();
+
+let events = [];
+
+function emit(event, data) {
+  let call = events.filter(e => e.event == event);
+  call.forEach(e => e.callback(data));
+}
+
+export function on(event, cb) {
+  events.push({
+    event, callback: cb
+  });
+}

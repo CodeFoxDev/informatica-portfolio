@@ -1,6 +1,7 @@
 import config from "../site.config.js";
+import { on } from "./spa.js";
 
-(function () {
+function initListeners() {
   const title = document.querySelector("#title-type");
 
   let index = 0;
@@ -16,7 +17,7 @@ import config from "../site.config.js";
     await typeContent(title, content, 20);
     animationInProgress = false;
   }, 6000);
-})();
+}
 
 function typeContent(element, content, speed) {
   return new Promise(resolve => {
@@ -39,3 +40,6 @@ function typeContent(element, content, speed) {
     }, speed);
   });
 }
+
+initListeners();
+on("load", e => initListeners());
